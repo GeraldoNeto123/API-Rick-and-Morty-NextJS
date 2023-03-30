@@ -14,22 +14,16 @@ export default createGlobalStyle`
     --cinza: #E3DDCB;
   }
   
-  html, body, #__next  {
-    overflow: hidden;
-    font-family: 'Montserrat', sans-serif;
-    height: 100%;
-  } 
-  
-  #__next {
+  * {
     margin: 0;
     padding: 0;
     outline: 0;
     box-sizing: border-box;    
     height: 100%;
-    
-    color: var(--preto);
-    -webkit-font-smoothing: antialiased !important;
-    font-size: 93.75%; //15px
+  } 
+
+  html{
+    /* font-size: 93.75%; //15px */
 
     @media (max-width: 1080px) {
       font-size: 93.75%; //15px
@@ -38,8 +32,20 @@ export default createGlobalStyle`
     @media (max-width: 720px) {
       font-size: 87.5%; //14px
     }
-    
+  }
 
+  body{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  html, body, #__next{
+    height: 100%;
+  }
+  
+  #__next {      
+    color: var(--preto);
+    -webkit-font-smoothing: antialiased !important;
+        
     a{
       color: inherit;
       text-decoration: none;
