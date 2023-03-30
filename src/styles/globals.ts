@@ -6,7 +6,7 @@ export default createGlobalStyle`
     --azul: #0047FF;
     --preto: #4C4637;
     --offWhite: #f8f8f8;
-    --primary: #0047FF;
+    --primary: #2779A7;
     --secondary: #FFE132;
     --danger: #EC1C1C;
     --success: #58CC02;
@@ -19,7 +19,6 @@ export default createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;    
-    height: 100%;
   } 
 
   html{
@@ -66,6 +65,10 @@ export default createGlobalStyle`
       list-style: decimal;
       list-style-position: inside;
     }
+    img, video{
+      max-width: 100%;
+      height: auto;
+    }
 
     [disabled]{
       opacity: 0.6;
@@ -87,6 +90,10 @@ export default createGlobalStyle`
       &:hover{
         filter: brightness(0.9);
       }
+    }
+
+    .bg-primary{
+      background-color: var(--primary);
     }
     
     .shadow-default {
@@ -164,6 +171,10 @@ export default createGlobalStyle`
           opacity: .5;
         }
       }
+    }
+
+    .grid{
+      display: grid;
     }
   }
 `;
