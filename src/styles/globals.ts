@@ -39,6 +39,7 @@ export default createGlobalStyle`
   
   html, body, #__next{
     height: 100%;
+    background-color: var(--offWhite);
   }
   
   #__next {      
@@ -93,6 +94,7 @@ export default createGlobalStyle`
     }
 
     .bg-primary{
+      height: 50px;
       background-color: var(--primary);
     }
     
@@ -176,5 +178,12 @@ export default createGlobalStyle`
     .grid{
       display: grid;
     }
+
+    .container{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
   }
 `;
