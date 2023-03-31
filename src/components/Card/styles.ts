@@ -26,6 +26,9 @@ export const Container = styled.div`
         font-weight: 500;
       }
       .name {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
         font-size: 1.25rem;
         font-weight: 700;
       }
@@ -34,17 +37,24 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media (max-width: 720px) {
+    .container-image {
+      width: 100%;
+      text-align: center;
+    }
+  }
 `;
 
 interface BadgeProps {
   status: "Alive" | "Dead" | "unknown";
 }
 export const Badge = styled.span<BadgeProps>`
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  right: 0;
+  right: 0; */
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 4px;
   color: #fff;
   background: ${({ status }) =>

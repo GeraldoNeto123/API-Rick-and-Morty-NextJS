@@ -12,7 +12,12 @@ export const Wrapper = styled.div`
   background-color: var(--offWhite);
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem 3rem;
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
+
+  @media (max-width: 720px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;

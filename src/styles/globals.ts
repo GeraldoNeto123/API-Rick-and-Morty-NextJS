@@ -43,6 +43,7 @@ export default createGlobalStyle`
   }
   
   #__next {      
+    height: auto;
     color: var(--preto);
     -webkit-font-smoothing: antialiased !important;
         

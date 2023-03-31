@@ -12,17 +12,22 @@ export default function Card({ character }: CardProps) {
     return (
         <Container>
             <Link href="/" className="product-link" title="Ver detalhes">
-                <Image
-                    className="border-radius"
-                    src={character.image}
-                    alt={`Foto personagem ${character.name}`}
-                    width={130}
-                    height={130}
-                />
+                <div className="container-image">
+                    <Image
+                        className="border-radius"
+                        src={character.image}
+                        alt={`Foto personagem ${character.name}`}
+                        width={130}
+                        height={130}
+                    />
+                </div>
                 <div className="infos">
                     <div>
                         <p className="name">
                             {character.name}
+                            <Badge className="border-radius" status={character.status}>
+                                {character.status}
+                            </Badge>
                         </p>
 
                         <p>
@@ -37,9 +42,7 @@ export default function Card({ character }: CardProps) {
                             Origem: {character.origin?.name}
                         </p>
                     </div>
-                    <Badge className="border-radius" status={character.status}>
-                            {character.status}
-                        </Badge>
+
                 </div>
             </Link>
         </Container>
