@@ -1,13 +1,12 @@
 import Header from "@/components/Header";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Container } from "../styles";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { Character } from "@/types/types";
 import { showCharacter } from "@/services/character";
 import Image from "next/image";
 import BadgeStatusCharacter from "@/components/BadgeStatusCharacter";
-import { Wrapper } from "./styles";
+import { Container, Wrapper } from "./styles";
 import FavoriteButton from "@/components/FavoriteButton";
 import { dateFormat } from "@/utils/dateFormat";
 
@@ -72,7 +71,7 @@ export const getServerSideProps: GetServerSideProps<{ character: Character }> = 
     const id = String(context.params?.id);
 
     const character: Character = await showCharacter(id)
-    
+
     return {
         props: {
             character

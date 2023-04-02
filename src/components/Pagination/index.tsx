@@ -1,5 +1,4 @@
 import { Info } from '@/types/types'
-// import ReactPaginate from 'react-paginate';
 import ReactPaginate from 'react-js-pagination';
 
 import { Container } from './styles';
@@ -18,7 +17,7 @@ export default function Pagination({ paginationInfo, handlePagination }: Paginat
         <Container>
             <span>
                 <strong>Total de registros: </strong>
-                {paginationInfo.count}
+                {paginationInfo?.count || 0}
             </span>
 
             <br />
@@ -27,7 +26,7 @@ export default function Pagination({ paginationInfo, handlePagination }: Paginat
             <ReactPaginate
                 activePage={Number(page || 1)}
                 itemsCountPerPage={20}
-                totalItemsCount={paginationInfo.count}
+                totalItemsCount={paginationInfo?.count || 0}
                 pageRangeDisplayed={5}
                 onChange={handlePagination}
                 innerClass="pagination"
