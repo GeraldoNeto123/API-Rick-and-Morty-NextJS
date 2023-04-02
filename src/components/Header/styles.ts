@@ -11,6 +11,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   background-color: var(--offWhite);
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1rem 3rem;
   padding-top: 1rem !important;
@@ -18,6 +19,5 @@ export const Wrapper = styled.div`
 
   @media (max-width: 720px) {
     flex-wrap: wrap;
-    justify-content: center;
   }
 `;

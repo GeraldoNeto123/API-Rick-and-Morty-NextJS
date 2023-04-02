@@ -16,9 +16,25 @@ export async function getCharacters(
     const res = await fetch(url);
 
     const data: Data = await res.json();
-    
+
     return data;
   } catch (error) {
     throw new Error("Erro ao obter personagens");
+  }
+}
+
+export async function showCharacter(id: string): Promise<Character> {
+  try {
+    const url = new URL(
+      `${process.env.ENV_BASE_URL_RICKANDMORTY}/character/${id}`
+    );
+
+    const res = await fetch(url);
+
+    const data: Character = await res.json();
+
+    return data;
+  } catch (error) {
+    throw new Error("Erro ao obter personagem.");
   }
 }

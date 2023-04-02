@@ -2,15 +2,10 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   :root{
-    --amarelo: #FFE132;
-    --azul: #0047FF;
-    --preto: #4C4637;
     --offWhite: #f8f8f8;
     --primary: #2779A7;
-    --secondary: #FFE132;
     --danger: #EC1C1C;
     --success: #58CC02;
-    --primary-light: #305fb8;
     --cinza: #E3DDCB;
   }
   
@@ -92,6 +87,15 @@ export default createGlobalStyle`
       &:hover{
         filter: brightness(0.9);
       }
+    }
+
+    .btn-primary{
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-sm {
+      padding:.7rem;
     }
 
     .bg-primary{
