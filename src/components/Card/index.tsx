@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { Container, Badge } from "./styles";
+import { Container, Badge, ContainerFavorite } from "./styles";
 import { Character } from "@/types/types";
 import Link from "next/link";
+import FavoriteButton from "../FavoriteButton";
 
 interface CardProps {
     character: Character;
@@ -42,9 +43,11 @@ export default function Card({ character }: CardProps) {
                             Origem: {character.origin?.name}
                         </p>
                     </div>
-
                 </div>
             </Link>
+            <ContainerFavorite>
+                <FavoriteButton id={character.id} />
+            </ContainerFavorite>
         </Container>
     )
 }

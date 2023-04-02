@@ -6,12 +6,17 @@ export const Container = styled.div`
   border-radius: 6px;
   text-align: left;
   padding: 1rem;
-
+  position: relative;
   & + & {
     margin-top: 1rem;
   }
 
   .product-link {
+    transition: .6s;
+    &:hover {
+    transform: scale(1.03);
+  }
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -59,4 +64,10 @@ export const Badge = styled.span<BadgeProps>`
   color: #fff;
   background: ${({ status }) =>
     status === "Alive" ? "#28a745" : status === "Dead" ? "#dc3545" : "#ffc107"};
+`;
+
+export const ContainerFavorite = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;
