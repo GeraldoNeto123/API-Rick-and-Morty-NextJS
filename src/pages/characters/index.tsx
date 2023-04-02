@@ -8,6 +8,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getCharacters } from '@/services/character';
 import Head from 'next/head';
+import ReactPaginate from 'react-paginate';
+import Pagination from '@/components/Pagination';
 
 type Data = {
     info: Info;
@@ -16,7 +18,17 @@ type Data = {
 
 export default function Characters({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const router = useRouter();
-    const { page } = router.query;
+    // const { page } = router.query;
+
+    const handlePagination = (pageNumber: number) => {
+        const path = router.pathname
+        const query = router.query
+        query.page = String(pageNumber)
+        router.push({
+            pathname: path,
+            query: query,
+        })
+    }
 
     return (
         <>
@@ -33,14 +45,19 @@ export default function Characters({ data }: InferGetServerSidePropsType<typeof 
                     ?? <div>Personagem não encontrado.</div>
                 }
 
-                <Link
+                <Pagination
+                    paginationInfo={data.info}
+                    handlePagination={handlePagination}
+                />
+
+                {/* <Link
                     href={{
                         pathname: router.pathname,
                         query: { ...router.query, page: page ? Number(page) + 1 : 2 },
                     }}
                 >
                     Próxima pagina
-                </Link>
+                </Link> */}
             </Container>
         </>
     )

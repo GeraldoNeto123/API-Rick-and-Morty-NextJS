@@ -15,8 +15,8 @@ export interface Character {
 }
 
 export interface Info {
-  count: Number;
-  pages: Number;
+  count: number;
+  pages: number;
   next: String;
   prev?: String;
 }

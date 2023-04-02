@@ -67,7 +67,8 @@ export default createGlobalStyle`
       height: auto;
     }
 
-    [disabled]{
+    [disabled],
+    .disabled{
       opacity: 0.6;
       cursor: not-allowed !important;
     }
