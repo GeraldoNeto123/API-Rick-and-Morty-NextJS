@@ -7,18 +7,14 @@ interface FavoriteButtonProps {
 }
 
 export default function FavoriteButton({ id }: FavoriteButtonProps) {
-    const { favoriteCharacters, handleFavoriteCharacters } = useFavoriteCharacters();
-
-    const isFavorite = (): boolean => {
-        return favoriteCharacters.includes(id);
-    }
+    const { favoriteCharacters, handleFavoriteCharacters, isFavorite } = useFavoriteCharacters();
 
     return (
         <Button
-            favorite={isFavorite()}
+            favorite={isFavorite(id)}
             onClick={() => handleFavoriteCharacters(id)}
             title={
-                isFavorite()
+                isFavorite(id)
                     ? 'Remover dos favoritos'
                     : 'Adicionar aos favoritos'
             }

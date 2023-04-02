@@ -7,6 +7,7 @@ interface FavoriteCharactersProviderProps {
 interface FavoriteCharactersContextData {
     favoriteCharacters: string[];
     handleFavoriteCharacters: (characterId: string) => void;
+    isFavorite: (characterId: string) => boolean;
 }
 
 const FavoriteCharactersContext = createContext<FavoriteCharactersContextData>({} as FavoriteCharactersContextData);
@@ -50,9 +51,13 @@ export function FavoriteCharactersProvider({ children }: FavoriteCharactersProvi
         }
     }, [favoriteCharacters]);
 
+    const isFavorite = (characterId: string) => {
+        return favoriteCharacters.includes(characterId);
+    }
+
     return (
         <FavoriteCharactersContext.Provider
-            value={{ favoriteCharacters, handleFavoriteCharacters }}
+            value={{ favoriteCharacters, handleFavoriteCharacters, isFavorite }}
         >
             {children}
         </FavoriteCharactersContext.Provider>
