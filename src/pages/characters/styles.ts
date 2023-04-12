@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   min-height: 100%;
-  margin-top: 84px !important;
+  margin-top: 94px !important;
   padding-bottom: 4rem !important;
   padding-top: 1rem !important;
 

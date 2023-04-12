@@ -1,32 +1,31 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-import { Container, Wrapper } from './styles';
+import { Container, Menu, Wrapper } from './styles';
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '@/public/assets/logo.png'
+import logoRickyMorty from "@/assets/ricky-and-morty.svg";
 
-interface HeaderProps {
-    children?: ReactNode;
-}
-export default function Header({ children }: HeaderProps) {
+export default function Header() {
 
 
     return (
         <Container>
-            {children
-                ? <Wrapper className='container'>
-                    {children}
-                </Wrapper>
-                : <Wrapper className='container'>
-                    <Link href="/">
-                        <Image
-                            src={logo}
-                            alt="Logo Rick and Morty"
-                            height={40}
-                        />
-                    </Link>
-                </Wrapper>
-            }
+            <Wrapper className='container'>
+                <Link href="/">
+                    <Image
+                        src={logoRickyMorty}
+                        alt=""
+                        width={120}
+                        height={120}
+                    />
+                </Link>
+
+                <Menu>
+                    <Link href="/">Home</Link>
+                    <Link href="/favorites">Favoritos</Link>
+                </Menu>
+            </Wrapper>
         </Container>
     )
 }

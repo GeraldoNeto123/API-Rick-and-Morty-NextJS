@@ -1,52 +1,56 @@
 import styled, { css } from "styled-components";
+interface ContainerProps {
+  status: "Alive" | "Dead" | "unknown";
+}
 
-export const Container = styled.div`
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
-  background: #fff;
+export const Container = styled.div<ContainerProps>`
   border-radius: 6px;
   text-align: left;
-  padding: 1rem;
   position: relative;
   & + & {
-    margin-top: 1rem;
+    margin-top: 2rem;
+  }
+  box-shadow: 0px 5px 10px 0px
+    ${({ status, theme }) =>
+      status === "Alive"
+        ? theme.greenAlpha300
+        : status === "Dead"
+        ? theme.redAlpha700
+        : theme.yellow700};
+  transition: 0.6s;
+  &:hover {
+    transform: scale(1.02);
   }
 
-  .product-link {
-    transition: .6s;
-    &:hover {
-    transform: scale(1.03);
-  }
-
+  .character-link {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     gap: 2rem;
     position: relative;
+  }
 
-    .infos {
-      display: flex;
-      justify-content: space-between;
+  .container-image {
+    position: relative;
+    width: 160px;
+    overflow: hidden;
 
-      p {
-        font-weight: 500;
-      }
-      .name {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        font-size: 1.25rem;
-        font-weight: 700;
-      }
-      p + p {
-        padding-top: 1rem;
-      }
+    img {
+      border-radius: 5px 0 0 5px;
+      /* aspect-ratio: 16/9; */
+      object-fit: cover;
     }
   }
 
   @media (max-width: 720px) {
+    .character-link {
+      flex-wrap: wrap;
+    }
     .container-image {
+      height: 250px;
       width: 100%;
-      text-align: center;
+      img {
+        border-radius: 5px 5px 0 0;
+      }
     }
   }
 `;
@@ -55,4 +59,24 @@ export const ContainerFavorite = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
+`;
+
+export const Description = styled.div`
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    font-weight: 500;
+  }
+  .name {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  p + p {
+    padding-top: 1rem;
+  }
 `;

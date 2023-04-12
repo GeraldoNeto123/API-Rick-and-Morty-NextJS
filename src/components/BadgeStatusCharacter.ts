@@ -11,6 +11,10 @@ export default styled.span<BadgeProps>`
   font-size: 0.7rem;
   padding: 4px;
   color: #fff;
-  background: ${({ status }) =>
-    status === "Alive" ? "#28a745" : status === "Dead" ? "#dc3545" : "#ffc107"};
+  background: ${({ status, theme }) =>
+    status === "Alive"
+      ? theme.success
+      : status === "Dead"
+      ? theme.danger
+      : theme.warning};
 `;

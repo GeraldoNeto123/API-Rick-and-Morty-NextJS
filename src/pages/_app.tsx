@@ -5,6 +5,8 @@ import { FavoriteCharactersProvider } from '@/hooks/useFavoriteCharacters';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Loader from '@/components/Loader';
+import { ThemeProvider } from 'styled-components'
+import { defaultTheme } from '@/styles/themes/default'
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -21,12 +23,14 @@ export default function App({ Component, pageProps }: AppProps) {
       router.events.off("routeChangeComplete", stopLoading)
     }
   }, [router.events])
-  
+
   return (
-    <FavoriteCharactersProvider>
-      <GlobalStyle />
-      <Component {...pageProps} />
-      <Loader isLoading={loading} />
-    </FavoriteCharactersProvider>
+    <ThemeProvider theme={defaultTheme}>
+      <FavoriteCharactersProvider>
+        <GlobalStyle />
+        <Component {...pageProps} />
+        <Loader isLoading={loading} />
+      </FavoriteCharactersProvider>
+    </ThemeProvider>
   )
 }

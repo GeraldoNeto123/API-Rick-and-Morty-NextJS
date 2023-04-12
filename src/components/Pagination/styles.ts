@@ -8,11 +8,11 @@ export const Container = styled.div`
   }
   .pagination {
     display: flex;
-    gap: .7rem;
+    gap: 0.7rem;
     .item-active {
-      background: var(--primary);
+      background: ${({ theme }) => theme.green300};
       a {
-        color: #fff !important;
+        color: ${({ theme }) => theme.white} !important;
       }
     }
   }

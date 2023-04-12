@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Container, ContainerFavorite } from "./styles";
+import { Container, ContainerFavorite, Description } from "./styles";
 import { Character } from "@/types/types";
 import Link from "next/link";
 import FavoriteButton from "../FavoriteButton";
@@ -12,18 +12,16 @@ interface CardProps {
 export default function Card({ character }: CardProps) {
 
     return (
-        <Container>
-            <Link href={`/characters/${character.id}`} className="product-link" title="Ver detalhes">
+        <Container status={character.status}>
+            <Link href={`/characters/${character.id}`} className="character-link" title="Ver detalhes">
                 <div className="container-image">
                     <Image
-                        className="border-radius"
                         src={character.image}
                         alt={`Foto personagem ${character.name}`}
-                        width={130}
-                        height={130}
+                        fill
                     />
                 </div>
-                <div className="infos">
+                <Description>
                     <div>
                         <p className="name">
                             {character.name}
@@ -44,7 +42,7 @@ export default function Card({ character }: CardProps) {
                             Origem: {character.origin?.name}
                         </p>
                     </div>
-                </div>
+                </Description>
             </Link>
             <ContainerFavorite>
                 <FavoriteButton id={character.id} />

@@ -7,7 +7,7 @@ export const Button = styled.button<ButtonProps>`
   border: none;
   cursor: pointer;
   background: transparent;
-  transition: .6s;
+  transition: 0.6s;
   &:hover {
     transform: scale(1.5);
   }
@@ -16,7 +16,8 @@ export const Button = styled.button<ButtonProps>`
     height: 24px;
     width: 24px;
     path {
-      fill: ${({ favorite }) => (favorite ? "var(--danger)" : "var(--cinza)")};
+      fill: ${({ favorite, theme }) =>
+        favorite ? theme.red700 : theme.gray400};
     }
   }
 `;

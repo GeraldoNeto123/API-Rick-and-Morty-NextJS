@@ -3,7 +3,7 @@ import { Container, Option } from "./styles"
 
 export default function FilterCharacter() {
     const router = useRouter()
-    const { status } = router.query;
+    const { status: statusQuery } = router.query;
 
     const handleStatus = (status: "alive" | "dead" | "unknown") => {
         return router.push({
@@ -11,7 +11,7 @@ export default function FilterCharacter() {
             query: {
                 ...router.query,
                 page: 1,
-                status
+                status: statusQuery !== status ? status : ''
             }
         })
     }
@@ -19,9 +19,9 @@ export default function FilterCharacter() {
     return (
         <Container className="shadow-default border-radius">
             <label>Status</label>
-            <Option className="btn" active={status === 'alive'} onClick={() => handleStatus('alive')}>Alive</Option>
-            <Option className="btn" active={status === 'dead'} onClick={() => handleStatus('dead')}>Dead</Option>
-            <Option className="btn" active={status === 'unknown'} onClick={() => handleStatus('unknown')}>Unknown</Option>
+            <Option className="btn" active={statusQuery === 'alive'} onClick={() => handleStatus('alive')}>Alive</Option>
+            <Option className="btn" active={statusQuery === 'dead'} onClick={() => handleStatus('dead')}>Dead</Option>
+            <Option className="btn" active={statusQuery === 'unknown'} onClick={() => handleStatus('unknown')}>Unknown</Option>
         </Container>
     )
 }

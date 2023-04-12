@@ -1,7 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import React from 'react';
 import { Aside, Container, Main } from './styles';
-import Header from './Header';
+import Header from '@/components/Header';
 import { Character, Info } from '@/types/types';
 import Card from '@/components/Card';
 import { useRouter } from 'next/router';
@@ -31,7 +31,7 @@ export default function Characters({ data }: InferGetServerSidePropsType<typeof 
     return (
         <>
             <Head>
-                <title>Personagens</title>
+                <title>Rick and Morty Personagens</title>
             </Head>
 
             <Header />

@@ -47,7 +47,7 @@ export const Overlay = styled.div`
   justify-content: center;
 
   .loader {
-    color: var(--primary);
+    color: #000;
     font-size: 90px;
     text-indent: -9999em;
     overflow: hidden;
