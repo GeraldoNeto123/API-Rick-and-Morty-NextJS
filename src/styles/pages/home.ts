@@ -6,6 +6,11 @@ export const Container = styled.div`
   display: grid;
   height: 100vh;
   position: relative;
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
 
   .logo {
     position: absolute;

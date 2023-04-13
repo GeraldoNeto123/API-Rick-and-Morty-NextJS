@@ -17,11 +17,7 @@ export const Container = styled.div`
     grid-template-areas: "main main";
   }
 `;
-export const FormSearchName = styled.form`
-  display: flex;
-  width: 100%;
-  gap: 3rem;
-`;
+
 
 export const Aside = styled.aside`
   grid-area: aside;

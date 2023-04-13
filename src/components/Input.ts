@@ -15,6 +15,6 @@ export default styled.input`
   appearance: none;
 
   &:focus{
-    border: 1px solid var(--primary);
+    border: 2px solid ${({theme}) => theme.green300};
   }
 `;

@@ -17,9 +17,10 @@ export const Container = styled.div<ContainerProps>`
         : status === "Dead"
         ? theme.redAlpha700
         : theme.yellow700};
-  transition: 0.6s;
+  transition: 0.3s;
   &:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
   }
 
   .character-link {
@@ -42,6 +43,9 @@ export const Container = styled.div<ContainerProps>`
   }
 
   @media (max-width: 720px) {
+    & + & {
+      margin-top: 3rem;
+    }
     .character-link {
       flex-wrap: wrap;
     }

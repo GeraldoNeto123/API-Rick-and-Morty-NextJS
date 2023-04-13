@@ -13,7 +13,11 @@ export default function Card({ character }: CardProps) {
 
     return (
         <Container status={character.status}>
-            <Link href={`/characters/${character.id}`} className="character-link" title="Ver detalhes">
+            <Link
+                href={`/characters/${character.id}`}
+                className="character-link"
+                title="Ver detalhes"
+            >
                 <div className="container-image">
                     <Image
                         src={character.image}
@@ -45,7 +49,7 @@ export default function Card({ character }: CardProps) {
                 </Description>
             </Link>
             <ContainerFavorite>
-                <FavoriteButton id={character.id} />
+                <FavoriteButton character={character} />
             </ContainerFavorite>
         </Container>
     )

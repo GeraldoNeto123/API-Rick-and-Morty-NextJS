@@ -1,19 +1,19 @@
 import { createContext, ReactNode, useCallback, useContext, useEffect, useRef, useState } from 'react';
-
+import { Character } from '@/types/types';
 interface FavoriteCharactersProviderProps {
     children: ReactNode;
 }
 
 interface FavoriteCharactersContextData {
-    favoriteCharacters: string[];
-    handleFavoriteCharacters: (characterId: string) => void;
+    favoriteCharacters: Character[];
+    handleFavoriteCharacters: (character: Character) => void;
     isFavorite: (characterId: string) => boolean;
 }
 
 const FavoriteCharactersContext = createContext<FavoriteCharactersContextData>({} as FavoriteCharactersContextData);
 
 export function FavoriteCharactersProvider({ children }: FavoriteCharactersProviderProps): JSX.Element {
-    const [favoriteCharacters, setFavoriteCharacters] = useState<string[]>([]);
+    const [favoriteCharacters, setFavoriteCharacters] = useState<Character[]>([]);
 
     useEffect(() => {
         (function getFavoriteCharactersLocalStorage() {
@@ -29,7 +29,7 @@ export function FavoriteCharactersProvider({ children }: FavoriteCharactersProvi
         })();
     }, [])
 
-    const prevfavoriteCharactersRef = useRef<string[]>();
+    const prevfavoriteCharactersRef = useRef<Character[]>();
 
     useEffect(() => {
         prevfavoriteCharactersRef.current = favoriteCharacters;
@@ -43,17 +43,18 @@ export function FavoriteCharactersProvider({ children }: FavoriteCharactersProvi
         }
     }, [favoriteCharacters, favoriteCharactersPreviousValue]);
 
-    const handleFavoriteCharacters = useCallback((characterId: string) => {
-        if (favoriteCharacters.includes(characterId)) {
-            setFavoriteCharacters(state => state.filter(id => id !== characterId))
-        } else {
-            setFavoriteCharacters(state => ([...state, characterId]))
-        }
-    }, [favoriteCharacters]);
+    const isFavorite = useCallback((characterId: string): boolean => {
+        return Boolean(favoriteCharacters.find((favoriteCharacter) => favoriteCharacter.id === characterId));
+    }, [favoriteCharacters])
 
-    const isFavorite = (characterId: string) => {
-        return favoriteCharacters.includes(characterId);
-    }
+    const handleFavoriteCharacters = useCallback((character: Character) => {
+        if (isFavorite(character.id)) {
+            setFavoriteCharacters(state => state.filter(item => item.id !== character.id))
+        } else {
+            setFavoriteCharacters(state => ([...state, character]))
+        }
+    }, [isFavorite]);
+
 
     return (
         <FavoriteCharactersContext.Provider

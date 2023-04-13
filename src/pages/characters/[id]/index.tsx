@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { Character } from "@/types/types";
 import { showCharacter } from "@/services/character";
@@ -8,7 +8,7 @@ import Image from "next/image";
 import BadgeStatusCharacter from "@/components/BadgeStatusCharacter";
 import { Container, Wrapper } from "./styles";
 import FavoriteButton from "@/components/FavoriteButton";
-import { dateFormat } from "@/utils/dateFormat";
+import DateFNS from "@/components/DateFNS";
 
 export default function CharacterDetails({ character }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const router = useRouter();
@@ -35,13 +35,13 @@ export default function CharacterDetails({ character }: InferGetServerSidePropsT
                             height={500}
                         />
                         <div className="container-favorite">
-                            <FavoriteButton id={character.id} />
+                            <FavoriteButton character={character} />
                         </div>
                     </div>
                     <div className="infos">
                         <h2 className="name">
                             {character.name}
-                            <BadgeStatusCharacter className="border-radius" status={character.status}>
+                            <BadgeStatusCharacter className="border-radius animate-pulse" status={character.status}>
                                 {character.status}
                             </BadgeStatusCharacter>
                         </h2>
@@ -58,7 +58,7 @@ export default function CharacterDetails({ character }: InferGetServerSidePropsT
                             Origem: {character.origin?.name}
                         </p>
                         <p>
-                            Criado em: {dateFormat(new Date(character.created))}
+                            Criado em: <DateFNS dateString={character.created} />
                         </p>
                     </div>
                 </Wrapper>

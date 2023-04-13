@@ -10,10 +10,10 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   height: 90px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 `;
 
 export const Menu = styled.div`
@@ -46,5 +46,29 @@ export const Menu = styled.div`
   a:hover::after {
     opacity: 1;
     transform: scale(1);
+  }
+`;
+
+export const FormSearchName = styled.form`
+  display: flex;
+  width: 100%;
+  gap: 3rem;
+  @media (max-width: 720px) {
+    display: none;
+  }
+`;
+export const InputContainer = styled.div`
+  width: 100%;
+  position: relative;
+  button.btn-search {
+    border-radius: 4px;
+    background: ${({ theme }) => theme.white};
+    border: none;
+    cursor: pointer;
+    height: 90%;
+    margin: 2px;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    right: 0;
   }
 `;

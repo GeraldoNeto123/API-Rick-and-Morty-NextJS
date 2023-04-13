@@ -11,7 +11,7 @@ export interface Character {
     name: string;
   };
   image: string;
-  created: Date;
+  created: string;
 }
 
 export interface Info {

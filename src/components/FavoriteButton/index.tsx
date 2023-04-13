@@ -1,20 +1,21 @@
 import { useFavoriteCharacters } from "@/hooks/useFavoriteCharacters";
 import { Button } from "./styles"
 import { HeartIcon } from './HeartIcon'
-
+import { Character } from '@/types/types'
 interface FavoriteButtonProps {
-    id: string;
+    character: Character;
 }
 
-export default function FavoriteButton({ id }: FavoriteButtonProps) {
-    const { favoriteCharacters, handleFavoriteCharacters, isFavorite } = useFavoriteCharacters();
+export default function FavoriteButton({ character }: FavoriteButtonProps) {
+    const { handleFavoriteCharacters, isFavorite } = useFavoriteCharacters();
+    const favorited = isFavorite(character.id);
 
     return (
         <Button
-            favorite={isFavorite(id)}
-            onClick={() => handleFavoriteCharacters(id)}
+            favorite={favorited}
+            onClick={() => handleFavoriteCharacters(character)}
             title={
-                isFavorite(id)
+                favorited
                     ? 'Remover dos favoritos'
                     : 'Adicionar aos favoritos'
             }

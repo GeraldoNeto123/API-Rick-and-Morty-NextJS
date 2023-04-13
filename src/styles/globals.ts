@@ -54,10 +54,7 @@ export default createGlobalStyle`
       list-style: decimal;
       list-style-position: inside;
     }
-    img, video{
-      max-width: 100%;
-      height: auto;
-    }
+   
 
     [disabled],
     .disabled {
