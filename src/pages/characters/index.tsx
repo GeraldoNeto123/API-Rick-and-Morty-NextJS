@@ -1,6 +1,6 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import React from 'react';
-import { Aside, Container, Main } from './styles';
+import { Aside, Container, Main } from '@/styles/pages/characters';
 import Header from '@/components/Header';
 import { Character, Info } from '@/types/types';
 import Card from '@/components/Card';

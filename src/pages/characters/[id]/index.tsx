@@ -6,7 +6,7 @@ import { Character } from "@/types/types";
 import { showCharacter } from "@/services/character";
 import Image from "next/image";
 import BadgeStatusCharacter from "@/components/BadgeStatusCharacter";
-import { Container, Wrapper } from "./styles";
+import { Container, Wrapper } from "@/styles/pages/charactersShow";
 import FavoriteButton from "@/components/FavoriteButton";
 import DateFNS from "@/components/DateFNS";
 
