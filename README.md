@@ -1,6 +1,8 @@
 <h1 align="center">Ricky and Morty 🥒</h1>
 
-![image](https://github.com/GeraldoNeto123/api-rick-and-morty-nextjs/tree/main/src/assets/page-characters.png)
+<p align="center">
+    <img width="540px" src="./src/assets/page-characters.png">
+</p>
 
 <h1 align="center" >
   <a href="https://api-rick-and-morty-next-js.vercel.app">Demonstração</a>
