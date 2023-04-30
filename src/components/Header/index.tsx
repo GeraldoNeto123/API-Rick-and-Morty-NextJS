@@ -16,11 +16,13 @@ export default function Header() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
+
+        delete router.query.page;
+        
         router.push({
             pathname: router.pathname,
             query: {
                 ...router.query,
-                page: 1,
                 name: nameRef.current?.value
             }
         })
@@ -30,7 +32,7 @@ export default function Header() {
     return (
         <Container>
             <Wrapper className='container'>
-                <Link href="/">
+                <Link href="/" title='Home'>
                     <Image
                         src={logoRickyMorty}
                         alt=""
@@ -66,7 +68,7 @@ export default function Header() {
                 </FormSearchName>
 
                 <Menu>
-                    <Link href="/">Home</Link>
+                    <Link href="/characters">Personagens</Link>
                     <Link href="/favorites">Favoritos</Link>
                 </Menu>
             </Wrapper>

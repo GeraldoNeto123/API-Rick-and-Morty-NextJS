@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  min-height: 100%;
-  margin-top: 94px !important;
-  padding-bottom: 4rem !important;
-  padding-top: 1rem !important;
-
+export const Container = styled.div` 
   display: grid;
   grid-template-columns: 200px 1fr;
   grid-template-rows: 1fr;

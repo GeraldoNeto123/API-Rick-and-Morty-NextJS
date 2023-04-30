@@ -21,7 +21,7 @@ export default function CharacterDetails({ character }: InferGetServerSidePropsT
 
             <Header />
 
-            <Container className='container'>
+            <Container className='container-page'>
                 <label role="button" onClick={() => router.back()} style={{ cursor: 'pointer' }}>
                     Voltar
                 </label>

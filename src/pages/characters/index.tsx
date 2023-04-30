@@ -35,7 +35,7 @@ export default function Characters({ data }: InferGetServerSidePropsType<typeof 
             </Head>
 
             <Header />
-            <Container className='container'>
+            <Container className='container-page'>
                 <Aside>
                     <FilterCharacter />
                 </Aside>

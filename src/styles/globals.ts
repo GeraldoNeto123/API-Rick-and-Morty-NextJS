@@ -108,5 +108,12 @@ export default createGlobalStyle`
       margin: 0 auto;
       padding: 0 1rem;
     }
+
+    .container-page {
+      max-width: 1120px;
+      margin: 94px auto 0;
+      padding: 1rem 1rem 4rem;
+      min-height: 100%;
+    }
   }
 `;
